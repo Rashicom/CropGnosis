@@ -72,19 +72,59 @@ class Otp(BaseModel):
 
 
 
-# Mentors
-class FarmerMentorMap(BaseModel):
-    farmer_account = models.ForeignKey("authorization.Accounts", on_delete=models.CASCADE, related_name="subscribed_mentors_set")
-    mentor_account = models.ForeignKey("authorization.Accounts", on_delete=models.CASCADE, related_name="subscribed_farmers_set")
+# Account subscriptions
+class AccountBaseSubscription(BaseModel):
+    user = models.ForeignKey(
+        to="authorization.Accounts",
+        on_delete=models.CASCADE,
+        related_name="my_subscriptions"
+    )
+    base_plan = models.ForeignKey(
+        to="subscription.SubscriptionPlans",
+        on_delete=models.CASCADE,
+        related_name="base_subscription_set"
+    )
+    valied_till = models.DateField()
 
 
 
-# subscription list for Subscribed_mentors
-# One Subscribed_mentor row can contain multiple subscriptions such as booster pack for date extension
-# class FarmerMentorMapSubscriptions(BaseModel):
-#     farmer_mentor_map = models.ForeignKey("authorization.FarmerMentorMap", on_delete=models.CASCADE, related_name="map_subscriptions")
-#     subscription = models.ForeignKey("authorization.SubscriptionPlan", on_delete=models.CASCADE, related_name="subscribed_mentor_farmer_set")
+# add on plans validity on the base plan validity
+# base plan can have multiple addon plans
+class AddonSubscription(BaseModel):
+    base_subscription = models.ForeignKey(
+        to="authorization.AccountBaseSubscription",
+        on_delete=models.CASCADE,
+        related_name="addon_plan_set"
+    )
+    add_on_plan = models.ForeignKey(
+        to="subscription.SubscriptionPlans",
+        on_delete=models.CASCADE,
+        related_name="addon_subscription_set"
+    )
     
-    
 
+
+"""-----------------Mentor  Subsctiptions-----------------"""
     
+# Mentor subscription
+# Mentor subscription not depends on the base plan
+# user can contact mentor even theire base plan is expired if they have a mentor plan
+# Data processing and data collection are suspended if base plan is expired, but they can see the previously generated data
+class MentorSubscriptions(BaseModel):
+    farmer = models.ForeignKey(
+        to="authorization.Accounts",
+        on_delete=models.CASCADE,
+        related_name="subscribed_mentors_set"
+    )
+    mentor_plan = models.ForeignKey(
+        to="subscription.SubscriptionPlans",
+        on_delete=models.CASCADE,
+        related_name="base_subscription_set"
+    )
+    mentor = models.ForeignKey(
+        to="authorization.Accounts",
+        on_delete=models.CASCADE,
+        related_name="my_farmers"
+        )
+    valied_till = models.DateField()
+

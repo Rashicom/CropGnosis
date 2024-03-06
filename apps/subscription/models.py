@@ -19,17 +19,26 @@ class SubscriptionPlans(BaseModel):
         "MENTOR":"MENTOR"
     }
     name = models.CharField(max_length=100)
-    discription = models.CharField(max_length=150)
-    price = models.FloatField()
     plan_type = models.CharField(choices=PLAN_TYPE_CHOICES)
+    discription = models.CharField(max_length=150)
+
+    # plan features
+    price = models.FloatField()
     plan_validity = models.IntegerField() # in days
 
+    
 
+class BasePlansFeatures(models.Model):
+    base_plan = models.ForeignKey(
+        to="subscription.SubscriptionPlans",
+        on_delete=models.CASCADE,
+        related_name="base_plan_features"
+    )
+    crop_field_count = models.IntegerField()
+    sattalite_data = models.BooleanField(default=True)
+    iot_integration = models.BooleanField()
+    data_analatics = models.BooleanField()
 
-# plan features
-class SubscriptionPlanFeatures(BaseModel):
-    subscription = models.ForeignKey(to="subscription.SubscriptionPlans", on_delete=models.CASCADE, related_name="plan_features")
-    feature = models.CharField(max_length=100)
 
 
 # payment

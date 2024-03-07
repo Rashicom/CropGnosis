@@ -26,18 +26,11 @@ class SubscriptionPlans(BaseModel):
     price = models.FloatField()
     plan_validity = models.IntegerField() # in days
 
-    
-
-class BasePlansFeatures(models.Model):
-    base_plan = models.ForeignKey(
-        to="subscription.SubscriptionPlans",
-        on_delete=models.CASCADE,
-        related_name="base_plan_features"
-    )
-    crop_field_count = models.IntegerField()
-    sattalite_data = models.BooleanField(default=True)
-    iot_integration = models.BooleanField()
-    data_analatics = models.BooleanField()
+    crop_field_count = models.IntegerField(blank=True, null=True)
+    satellite_data = models.BooleanField(blank=True, null=True)
+    satellite_images = models.BooleanField(blank=True, null=True)
+    iot_integration = models.BooleanField(blank=True, null=True)
+    data_analatics = models.BooleanField(blank=True, null=True)
 
 
 
@@ -75,6 +68,6 @@ class PaymentTransactions(BaseModel):
         related_name="my_transactions"
     )
 
-    payment_response = models.TextField(null=True, blank=True, manull=True, blank=True)
+    payment_response = models.TextField(null=True, blank=True)
     status = models.BooleanField(default=False)
 

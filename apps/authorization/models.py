@@ -119,7 +119,7 @@ class MentorSubscriptions(BaseModel):
     mentor_plan = models.ForeignKey(
         to="subscription.SubscriptionPlans",
         on_delete=models.CASCADE,
-        related_name="base_subscription_set"
+        related_name="mentor_plan_subscription_set"
     )
     mentor = models.ForeignKey(
         to="authorization.Accounts",

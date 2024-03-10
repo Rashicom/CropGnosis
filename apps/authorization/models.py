@@ -26,7 +26,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     name = models.CharField(max_length=150, null=True, blank=True)
     contact_number = models.CharField(max_length=20, null=True, blank=True)
-    email = models.EmailField(max_length=150, null=True, blank=True, unique=True)
+    email = models.EmailField(max_length=150, unique=True)
     is_activated = models.BooleanField(default=True)
 
     # django level permissions

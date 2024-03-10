@@ -2,12 +2,16 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics
+from serializer.customer_serializer import UserRegistrationSerializer
+
 
 # User Registration
-class UserRegistration(APIView):
-
+class UserRegistration(generics.GenericAPIView):
+    serializer_class = UserRegistrationSerializer
+    
     def post(self, request, *args, **kwargs):
-        pass
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
 
 

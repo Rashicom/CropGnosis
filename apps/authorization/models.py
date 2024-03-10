@@ -35,7 +35,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
 
     # cutorm permission roles
-    is_farm_staff = models.BooleanField(default=False)
+    is_farmer_staff = models.BooleanField(default=False)
 
     # user type
     user_type = models.CharField(max_length=50, choices=USER_TYPE_CHOICES, default="FARMER")

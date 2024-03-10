@@ -50,7 +50,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
 
 # address
 class Address(BaseModel):
-    account = models.ForeignKey("authorization.Accounts", on_delete=models.CASCADE, related_name="my_addresses")
+    account = models.ForeignKey(to="authorization.Accounts", on_delete=models.CASCADE, related_name="my_addresses")
 
     # basic address information
     place = models.CharField(max_length=100, blank=True, null = True)
@@ -106,7 +106,7 @@ class PlanFeaturesThrough(BaseModel):
         on_delete=models.CASCADE,
     )
     subscription_features = models.ForeignKey(
-        to="subscription.PlanFeatures",
+        to="subscription.EssentialFeatures",
         on_delete=models.CASCADE,
     )
     feature_type = models.CharField(choices=TYPE_CHOICES)

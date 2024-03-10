@@ -68,15 +68,15 @@ class PaymentTransactions(BaseModel):
         blank=True, null=True
     )
 
-    mentor = models.ForeignKey(
-        to="authorization.Accounts",
+    addon = models.ForeignKey(
+        to="subscription.EssentialFeatures",
         on_delete=models.CASCADE,
         related_name="forme_transactions",
         blank=True, null=True
     )
 
-    addon = models.ForeignKey(
-        to="authorization.EssentialFeatures",
+    mentor = models.ForeignKey(
+        to="authorization.Accounts",
         on_delete=models.CASCADE,
         related_name="forme_transactions",
         blank=True, null=True

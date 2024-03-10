@@ -11,27 +11,43 @@ class BaseModel(models.Model):
         ordering = ["-created_at"]
 
 
-# subscription plans
-class SubscriptionPlans(BaseModel):
-    PLAN_TYPE_CHOICES = {
-        "BASE_SUBSCRIPTION_PLAN":"BASE_SUBSCRIPTION_PLAN",
-        "ADD_ON_PLAN":"ADD_ON_PLAN",
-        "MENTOR":"MENTOR"
-    }
-    name = models.CharField(max_length=100)
-    plan_type = models.CharField(choices=PLAN_TYPE_CHOICES)
-    discription = models.CharField(max_length=150)
 
-    # plan features
-    price = models.FloatField()
+# subscription plans
+class BaseSubscriptionPlans(BaseModel):
+    name = models.CharField(max_length=100)
+    discription = models.CharField(max_length=150)
+    features = models.ManyToManyField(
+        to="subscription.EssentialFeatures",
+        related_name="base_plan_features"
+    )
+
+    total_price = models.FloatField() # cumulative price of all features
+    discounted_price = models.FloatField() # base subscription price
+    crop_field_count = models.IntegerField()
     plan_validity = models.IntegerField() # in days
 
-    crop_field_count = models.IntegerField(blank=True, null=True)
-    satellite_data = models.BooleanField(blank=True, null=True)
-    satellite_images = models.BooleanField(blank=True, null=True)
-    iot_integration = models.BooleanField(blank=True, null=True)
-    data_analatics = models.BooleanField(blank=True, null=True)
 
+
+
+# plan features
+class EssentialFeatures(BaseModel):
+    """
+    This feature is a kind of permission, feature char name is used as the permission name
+    any user access the perticular feature we are checking the feature name for the permission checking
+    main features:
+        satellite_data, satellite_images, vegitation idex, vegitation
+    """
+    feature = models.CharField(max_length=100)
+    remark = models.TextField()
+    feature_price = models.FloatField() # per day
+
+
+
+# TODO: iot subscription table
+# class BaseIoTSubscriptionPlans(BaseModel):
+
+# TODO: data analatics service subscription plans
+# class BaseDataAnalaticsSubscriptionPlans(BaseModel):
 
 
 # payment
@@ -39,14 +55,14 @@ class PaymentTransactions(BaseModel):
     PAID_FOR_CHOICES = {
         "BASE_SUBSCRIPTION_PLAN":"BASE_SUBSCRIPTION_PLAN",
         "ADD_ON_PLAN":"ADD_ON_PLAN",
-        "MENTOR":"MENTOR"
+        "MENTOR":"MENTOR",
+        "IOT_INTEGRATION":"IOT_INTEGRATION"
     }
-
     paid_for = models.CharField(choices=PAID_FOR_CHOICES, max_length=50)
 
     # payed for foreign keys
     subscription_plan = models.ForeignKey(
-        to="subscription.SubscriptionPlans", 
+        to="subscription.BaseSubscriptionPlans", 
         on_delete=models.CASCADE,
         related_name="purchased_set",
         blank=True, null=True
@@ -54,6 +70,13 @@ class PaymentTransactions(BaseModel):
 
     mentor = models.ForeignKey(
         to="authorization.Accounts",
+        on_delete=models.CASCADE,
+        related_name="forme_transactions",
+        blank=True, null=True
+    )
+
+    addon = models.ForeignKey(
+        to="authorization.EssentialFeatures",
         on_delete=models.CASCADE,
         related_name="forme_transactions",
         blank=True, null=True

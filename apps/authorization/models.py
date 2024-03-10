@@ -60,6 +60,7 @@ class Address(BaseModel):
 
     about = models.TextField(blank=True, null = True)
     designation = models.CharField(max_length=50, blank=True, null = True)
+    mentor_fee = models.IntegerField(blank=True, null = True)
     
 
 
@@ -73,35 +74,44 @@ class Otp(BaseModel):
 
 
 # Account subscriptions
-class AccountBaseSubscription(BaseModel):
+class AccountSubscription(BaseModel):
     user = models.ForeignKey(
         to="authorization.Accounts",
         on_delete=models.CASCADE,
         related_name="my_subscriptions"
     )
     base_plan = models.ForeignKey(
-        to="subscription.SubscriptionPlans",
+        to="subscription.BaseSubscriptionPlans",
         on_delete=models.CASCADE,
         related_name="base_subscription_set"
+    )
+    plan_features = models.ManyToManyField(
+        to="subscription.EssentialFeatures",
+        through="authorization.PlanFeaturesThrough" ,
     )
     valied_till = models.DateField()
 
 
+# through table for plan features m2m connection to plan peature tabele
+# through table contain the feature is the part of base plan of addon
+class PlanFeaturesThrough(BaseModel):
 
-# add on plans validity on the base plan validity
-# base plan can have multiple addon plans
-class AddonSubscription(BaseModel):
+    TYPE_CHOICES = {
+        "BASE_SUBSCRIPTION_FEATURE":"BASE_SUBSCRIPTION_FEATURE",
+        "ADD_ON_FEATURE":"ADD_ON_FEATURE",
+    }
+
     base_subscription = models.ForeignKey(
-        to="authorization.AccountBaseSubscription",
+        to="authorization.AccountSubscription",
         on_delete=models.CASCADE,
-        related_name="addon_plan_set"
     )
-    add_on_plan = models.ForeignKey(
-        to="subscription.SubscriptionPlans",
+    subscription_features = models.ForeignKey(
+        to="subscription.PlanFeatures",
         on_delete=models.CASCADE,
-        related_name="addon_subscription_set"
     )
-    
+    feature_type = models.CharField(choices=TYPE_CHOICES)
+
+
 
 
 """-----------------Mentor  Subsctiptions-----------------"""
@@ -116,15 +126,14 @@ class MentorSubscriptions(BaseModel):
         on_delete=models.CASCADE,
         related_name="subscribed_mentors_set"
     )
-    mentor_plan = models.ForeignKey(
-        to="subscription.SubscriptionPlans",
-        on_delete=models.CASCADE,
-        related_name="mentor_plan_subscription_set"
-    )
     mentor = models.ForeignKey(
         to="authorization.Accounts",
         on_delete=models.CASCADE,
         related_name="my_farmers"
-        )
+    )
     valied_till = models.DateField()
 
+
+
+"""------------------WALLET-----------------------------"""
+# TODO:wallet model

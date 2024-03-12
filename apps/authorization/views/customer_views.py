@@ -13,6 +13,9 @@ class UserRegistration(generics.GenericAPIView):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
+        # user registration send email in signals
+
         self.success_message = "User registered successfully"
         return Response(serializer.data)
 

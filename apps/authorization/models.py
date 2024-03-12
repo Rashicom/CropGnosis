@@ -2,7 +2,7 @@ from django.db import models
 import uuid
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin, UserManager
-
+from .managers import AccountManager
 
 
 class BaseModel(models.Model):
@@ -32,17 +32,20 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
     # django level permissions
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     # cutorm permission roles
-    is_farmer_staff = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=True, blank=True, null=True) # admin farmer
+    is_farmer_staff = models.BooleanField(default=False, blank=True, null=True) # farmer can add staffs
 
     # user type
-    user_type = models.CharField(max_length=50, choices=USER_TYPE_CHOICES, default="FARMER")
+    user_type = models.CharField(max_length=50, choices=USER_TYPE_CHOICES, default="FARMER", blank=True, null=True)
+    
+    def __str__(self):
+        return str(self.email)
+    
+    objects = AccountManager()
 
-    objects = UserManager()
-
-    EMAIL_FIELD = "email"
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import environ
+from datetime import timedelta
 
 env = environ.Env(
     # set casting, default value
@@ -85,6 +86,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=365 * 10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
+    "USER_ID_FIELD": "uuid",
+    "USER_ID_CLAIM": "uuid",
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

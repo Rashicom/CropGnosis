@@ -1,12 +1,14 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import generics
 from ..serializer.customer_serializer import UserRegistrationSerializer
+import random
 
 
 # User Registration
 class UserRegistration(generics.GenericAPIView):
+    permission_classes = [AllowAny]
     serializer_class = UserRegistrationSerializer
     
     def post(self, request, *args, **kwargs):
@@ -22,9 +24,15 @@ class UserRegistration(generics.GenericAPIView):
 
 # login for farmers and staff farmers
 class UserLogin(APIView):
-    permission_classes = []
+    permission_classes = [AllowAny]
 
-    def get(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
+        email = request.data.get("email")
+        password = request.data.get("password")
+
+        if not email or password:
+            pass
+            
         return Response(status=200)
     
 

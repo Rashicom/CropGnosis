@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cropgnosis"
+version = "0.1.0"
+description = "CropGnosis is a precision farming web application that integrates satellite data and IoT device data to provide farmers with comprehensive insights into their crops."
+authors = ["Rashicom <rashidkp.484@gmail.com>"]
+license = "MIT license"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.0.2"
+django-environ = "^0.11.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

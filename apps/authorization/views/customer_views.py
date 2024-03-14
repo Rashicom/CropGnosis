@@ -3,14 +3,13 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import generics
 from ..serializer.customer_serializer import UserRegistrationSerializer, AddressSerializer
-import random
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 from ...common.utils.exceptions import BadRequestException, UnauthorizedException
 from ..models import Accounts, Address
 
 
-# User Registration
+# Farmer User Registration
 class UserRegistration(generics.GenericAPIView):
     permission_classes = [AllowAny]
     serializer_class = UserRegistrationSerializer
@@ -70,6 +69,7 @@ class AccountAddress(generics.GenericAPIView):
         
         self.succuss_message = "Address fetched successfully"
         return Response(data)
+        
     
 
     def post(self, request, *args, **kwargs):
@@ -107,4 +107,6 @@ class AccountAddress(generics.GenericAPIView):
 
         self.succuss_message = "Address updated successfully"
         return Response(data)
-    
+
+
+

@@ -7,19 +7,22 @@ from datetime import datetime
 @receiver(post_save, sender=Accounts)
 def create_new_account(sender, instance, created, **kwargs):
     print("signal fired")
-    # send sms if new account is created
-    if created:
+    # send sms if new account is created and user is not a staff
+    if created and not instance.is_farmer_staff:
         today = datetime.now().date()
         data = {
             "name": instance.name,
             "date": f'{today.day} {today.strftime("%b")}, {today.year}'
         }
+
+        # different template for farmer and mentor
+        html_template = "user_registration_success.html" if instance.user_type == "FARMER" else "mentor_registration_success.html"
         try:
             email_obj = Email()
             email_obj.send_email(
                 subject="CropGnosis",
                 to=[instance.email],
-                html_template="user_registration_success.html",
+                html_template=html_template,
                 data=data
             )
         except Exception as e:

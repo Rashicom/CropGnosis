@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Accounts
+from ..models import Accounts, Address
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,4 +11,16 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             "contact_number":{"required":True},
             "email":{"required":True},
             "password":{"write_only":True}
+        }
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ["account","place","city","state","zip_code","about","designation","mentor_fee"]
+        extra_kwargs = {
+            "place":{"required":True},
+            "city":{"required":True},
+            "state":{"required":True},
+            "zip_code":{"required":True}
         }

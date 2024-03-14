@@ -1,0 +1,3 @@
+[14/Mar/2024 16:07:48] INFO [django.utils.autoreload:668] Watching for file changes with StatReloader
+[14/Mar/2024 16:08:20] INFO [django.utils.autoreload:668] Watching for file changes with StatReloader
+[14/Mar/2024 16:08:58] INFO [django.utils.autoreload:266] /home/rashid/Projects/CropGnosis/config/settings.py changed, reloading.

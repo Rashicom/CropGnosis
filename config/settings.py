@@ -171,6 +171,7 @@ AUTH_USER_MODEL = 'authorization.Accounts'
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+
     "formatters": {
         "verbose": {
             "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
@@ -182,6 +183,54 @@ LOGGING = {
             "datefmt": "%d/%b/%Y %H:%M:%S",
         },
     },
+
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter':'verbose'
+        },
+        'dblogfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/db.log',
+            'formatter': 'verbose',
+        },
+
+        'applogfile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'logs/application.log',
+            'formatter': 'verbose',
+        },
+
+        "logfile": {
+            "level": "WARNING",
+            "class": "logging.FileHandler",
+            "filename": "logs/project.log",
+            "formatter": "verbose",
+        },  
+    },
+
+    "root": {
+        "handlers": ["logfile"],
+        "level": "WARNING",
+    },
+
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['dblogfile'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+
+        'application_log':{
+            'handlers': ['applogfile'],
+            'level': 'DEBUG',
+            'propagate': False,
+        }
+    },
+
     
 }
 

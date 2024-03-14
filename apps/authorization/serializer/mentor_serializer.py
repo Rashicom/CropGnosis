@@ -1,9 +1,7 @@
 from rest_framework import serializers
 from ..models import Accounts, Address
 from django.db import transaction
-
-
-
+from django.contrib.auth.hashers import make_password
 
 
 # mentor address serializer
@@ -35,8 +33,12 @@ class MentorRegistrationSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         address = validated_data.pop("my_addresses")
-        
+        password = validated_data.pop("password")
         with transaction.atomic():
-            account = Accounts.objects.create(**validated_data, user_type="MENTOR", is_activated=False)
+            account = Accounts.objects.create(
+                **validated_data, user_type="MENTOR",
+                is_activated=False,
+                password = make_password(password)
+            )
             Address.objects.create(**address, account=account)
         return account

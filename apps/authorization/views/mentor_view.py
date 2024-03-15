@@ -83,13 +83,13 @@ class MentorAccountAddress(generics.GenericAPIView):
 
 
     def get(self, request, *args, **kwargs):
-        serializer = self.serializer_classr(request.user)
-        return Response(serializer.user)
+        serializer = self.serializer_class(request.user.my_addresses)
+        return Response(serializer.data)
     
 
-    def path(self, request, *args, **kwargs):
+    def patch(self, request, *args, **kwargs):
         account = request.user
-        address = account.my_addresses.all().last()
+        address = account.my_addresses
         serializer = self.serializer_class(address, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

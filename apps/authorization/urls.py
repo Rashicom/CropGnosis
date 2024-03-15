@@ -11,7 +11,7 @@ urlpatterns = [
     path('mentor/registration', mentor_view.MentorRegistration.as_view()),
     path('mentor/login', mentor_view.UserLogin.as_view()),
     path('mentor/update-account', mentor_view.UpdateMentorAccount.as_view()),
-    path('mentor/update-address', mentor_view.MentorAccountAddress.as_view()),
+    path('mentor/address', mentor_view.MentorAccountAddress.as_view()),
 
 
 ]

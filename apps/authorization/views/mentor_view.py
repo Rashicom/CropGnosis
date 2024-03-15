@@ -2,7 +2,7 @@ from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework import generics
 from rest_framework.response import Response
 from ..serializer.mentor_serializer import MentorRegistrationSerializer, MentorAddressSerializer, MentorAccountSerializer
-from ...common.utils.exceptions import BadRequestException
+from ...common.utils.exceptions import BadRequestException, PermissionDeniedException
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from ..models import Accounts, Address
@@ -40,14 +40,21 @@ class UserLogin(generics.GenericAPIView):
         if not email or not password:
             raise BadRequestException
         
-        user = authenticate(request,email=email, password=password, user_type="MENTOR")
-        if user is not None:
+        user = authenticate(request,email=email, password=password)
+        
+        # user must be activated
+        if not user.is_activated:
+            self.error_message = "uer is in inactive status"
+            raise PermissionDeniedException
+        
+        elif user is not None and user.user_type=="MENTOR":
             refresh = RefreshToken.for_user(user)
             self.success_message = "Login successful"
             return Response({
                 "refresh":str(refresh),
                 "access":str(refresh.access_token)
             })
+        
         else:
             self.error_message = "User not found"
             return Response(status=401)

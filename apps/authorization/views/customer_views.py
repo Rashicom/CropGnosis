@@ -5,7 +5,7 @@ from rest_framework import generics
 from ..serializer.customer_serializer import UserRegistrationSerializer, AddressSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
-from ...common.utils.exceptions import BadRequestException, UnauthorizedException
+from ...common.utils.exceptions import BadRequestException, PermissionDeniedException
 from ..models import Accounts, Address
 
 
@@ -36,14 +36,21 @@ class UserLogin(APIView):
         if not email or not password:
             raise BadRequestException
         
-        user = authenticate(request,email=email, password=password, user_type="FARMER")
-        if user is not None:
+        user = authenticate(request,email=email, password=password)
+
+        # user must be activated
+        if not user.is_activated:
+            self.error_message = "uer is in inactive status"
+            raise PermissionDeniedException
+        
+        elif user is not None and user.user_type=="FARMER":
             refresh = RefreshToken.for_user(user)
             self.success_message = "Login successful"
             return Response({
                 "refresh":str(refresh),
                 "access":str(refresh.access_token)
             })
+        
         else:
             self.error_message = "User not found"
             return Response(status=401)

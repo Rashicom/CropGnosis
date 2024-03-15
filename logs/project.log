@@ -1,3 +1,15 @@
 [14/Mar/2024 16:07:48] INFO [django.utils.autoreload:668] Watching for file changes with StatReloader
 [14/Mar/2024 16:08:20] INFO [django.utils.autoreload:668] Watching for file changes with StatReloader
 [14/Mar/2024 16:08:58] INFO [django.utils.autoreload:266] /home/rashid/Projects/CropGnosis/config/settings.py changed, reloading.
+[15/Mar/2024 05:50:58] WARNING [django.request:241] Not Found: /
+[15/Mar/2024 05:52:19] WARNING [django.request:241] Unauthorized: /api/auth/customer/login
+[15/Mar/2024 05:53:39] WARNING [django.request:241] Bad Request: /api/auth/customer/address
+[15/Mar/2024 06:12:05] WARNING [django.request:241] Unauthorized: /api/auth/mentor/login
+[15/Mar/2024 06:13:09] WARNING [django.request:241] Unauthorized: /api/auth/mentor/login
+[15/Mar/2024 06:13:18] WARNING [django.request:241] Unauthorized: /api/auth/mentor/login
+[15/Mar/2024 06:13:52] WARNING [django.request:241] Unauthorized: /api/auth/mentor/login
+[15/Mar/2024 06:13:57] WARNING [django.request:241] Unauthorized: /api/auth/mentor/login
+[15/Mar/2024 06:16:57] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[15/Mar/2024 06:17:27] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[15/Mar/2024 06:17:36] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[15/Mar/2024 06:17:46] WARNING [django.request:241] Forbidden: /api/auth/mentor/login

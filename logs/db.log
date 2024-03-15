@@ -178,3 +178,1115 @@
                 AND pg_catalog.pg_table_is_visible(c.oid)
         ; args=None; alias=default
 [14/Mar/2024 16:09:10] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 05:50:54] DEBUG [django.db.backends:151] (0.008) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 05:50:54] DEBUG [django.db.backends:151] (0.002) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 05:51:09] DEBUG [django.db.backends:151] (0.022) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T05:51:09.322878+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 5, 51, 9, 322878, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 05:51:09] DEBUG [django.db.backends:151] (0.005) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:51:09] DEBUG [django.db.backends:151] (0.005) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message", "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type", "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_admin_log" INNER JOIN "authorization_accounts" ON ("django_admin_log"."user_id" = "authorization_accounts"."uuid") LEFT OUTER JOIN "django_content_type" ON ("django_admin_log"."content_type_id" = "django_content_type"."id") WHERE "django_admin_log"."user_id" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid ORDER BY "django_admin_log"."action_time" DESC LIMIT 10; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T05:51:12.392029+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 5, 51, 12, 392029, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.000) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.002) SELECT COUNT(*) AS "__count" FROM "authorization_address"; args=(); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_address"; args=(); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee", "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_address" INNER JOIN "authorization_accounts" ON ("authorization_address"."account_id" = "authorization_accounts"."uuid") ORDER BY "authorization_address"."created_at" DESC, "authorization_address"."uuid" DESC; args=(); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.002) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T05:51:12.459959+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 5, 51, 12, 459959, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 05:51:12] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:51:52] DEBUG [django.db.backends:151] (0.001) SELECT 1 AS "a" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 1; args=(1, 'farmer1@gmail.com'); alias=default
+[15/Mar/2024 05:51:53] DEBUG [django.db.backends:151] (0.003) INSERT INTO "authorization_accounts" ("password", "last_login", "uuid", "created_at", "updated_at", "name", "contact_number", "email", "is_activated", "is_staff", "is_superuser", "is_active", "is_admin", "is_farmer_staff", "user_type") VALUES ('pbkdf2_sha256$720000$MTeGOWNp98zDXWncaapLE2$m2NOxp6RN1sCUur0ii1bdU/MCs1Ppov9o1bkL+jIgPA=', NULL, 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid, '2024-03-15T05:51:53.428390+00:00'::timestamptz, '2024-03-15T05:51:53.428405+00:00'::timestamptz, 'farmer1', '9846142478', 'farmer1@gmail.com', true, false, false, true, true, false, 'FARMER'); args=('pbkdf2_sha256$720000$MTeGOWNp98zDXWncaapLE2$m2NOxp6RN1sCUur0ii1bdU/MCs1Ppov9o1bkL+jIgPA=', None, UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'), datetime.datetime(2024, 3, 15, 5, 51, 53, 428390, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 5, 51, 53, 428405, tzinfo=datetime.timezone.utc), 'farmer1', '9846142478', 'farmer1@gmail.com', True, False, False, True, True, False, 'FARMER'); alias=default
+[15/Mar/2024 05:52:19] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer@gmail.com' LIMIT 21; args=('farmer@gmail.com',); alias=default
+[15/Mar/2024 05:52:25] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 21; args=('farmer1@gmail.com',); alias=default
+[15/Mar/2024 05:53:06] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:53:06] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee" FROM "authorization_address" WHERE "authorization_address"."account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid ORDER BY "authorization_address"."created_at" ASC LIMIT 1; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:53:39] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:53:39] DEBUG [django.db.backends:151] (0.000) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 05:53:39] DEBUG [django.db.backends:151] (0.000) SELECT 1 AS "a" FROM "authorization_address" WHERE "authorization_address"."account_id" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 1; args=(1, UUID('42998454-1d99-4f58-a2fc-8065af737429')); alias=default
+[15/Mar/2024 05:54:23] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:54:23] DEBUG [django.db.backends:151] (0.000) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:54:23] DEBUG [django.db.backends:151] (0.001) SELECT 1 AS "a" FROM "authorization_address" WHERE "authorization_address"."account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 1; args=(1, UUID('a105044e-3571-4fff-b70e-000f0ab85ab2')); alias=default
+[15/Mar/2024 05:54:23] DEBUG [django.db.backends:151] (0.010) INSERT INTO "authorization_address" ("uuid", "created_at", "updated_at", "account_id", "place", "city", "state", "zip_code", "about", "designation", "mentor_fee") VALUES ('de888415-cf90-4ce9-bd05-64650a59c91d'::uuid, '2024-03-15T05:54:23.189027+00:00'::timestamptz, '2024-03-15T05:54:23.189041+00:00'::timestamptz, 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid, 'aluva', 'eranakulam', 'kerala', '674534', NULL, NULL, NULL); args=(UUID('de888415-cf90-4ce9-bd05-64650a59c91d'), datetime.datetime(2024, 3, 15, 5, 54, 23, 189027, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 5, 54, 23, 189041, tzinfo=datetime.timezone.utc), UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'), 'aluva', 'eranakulam', 'kerala', '674534', None, None, None); alias=default
+[15/Mar/2024 05:55:37] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:55:37] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee" FROM "authorization_address" WHERE "authorization_address"."account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid ORDER BY "authorization_address"."created_at" ASC LIMIT 1; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:56:22] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:56:22] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee" FROM "authorization_address" WHERE "authorization_address"."account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid ORDER BY "authorization_address"."created_at" ASC LIMIT 1; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:56:22] DEBUG [django.db.backends:151] (0.004) UPDATE "authorization_address" SET "created_at" = '2024-03-15T05:54:23.189027+00:00'::timestamptz, "updated_at" = '2024-03-15T05:56:22.328325+00:00'::timestamptz, "account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid, "place" = 'aluva', "city" = 'eranakulam', "state" = 'kerala', "zip_code" = '674534', "about" = 'am a small scale farmer form aluva', "designation" = NULL, "mentor_fee" = NULL WHERE "authorization_address"."uuid" = 'de888415-cf90-4ce9-bd05-64650a59c91d'::uuid; args=(datetime.datetime(2024, 3, 15, 5, 54, 23, 189027, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 5, 56, 22, 328325, tzinfo=datetime.timezone.utc), UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'), 'aluva', 'eranakulam', 'kerala', '674534', 'am a small scale farmer form aluva', UUID('de888415-cf90-4ce9-bd05-64650a59c91d')); alias=default
+[15/Mar/2024 05:56:42] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:56:42] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee" FROM "authorization_address" WHERE "authorization_address"."account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid ORDER BY "authorization_address"."created_at" ASC LIMIT 1; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 05:56:42] DEBUG [django.db.backends:151] (0.005) UPDATE "authorization_address" SET "created_at" = '2024-03-15T05:54:23.189027+00:00'::timestamptz, "updated_at" = '2024-03-15T05:56:42.598628+00:00'::timestamptz, "account_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid, "place" = 'aluva north', "city" = 'eranakulam', "state" = 'kerala', "zip_code" = '674534', "about" = 'am a small scale farmer form aluva', "designation" = NULL, "mentor_fee" = NULL WHERE "authorization_address"."uuid" = 'de888415-cf90-4ce9-bd05-64650a59c91d'::uuid; args=(datetime.datetime(2024, 3, 15, 5, 54, 23, 189027, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 5, 56, 42, 598628, tzinfo=datetime.timezone.utc), UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'), 'aluva north', 'eranakulam', 'kerala', '674534', 'am a small scale farmer form aluva', UUID('de888415-cf90-4ce9-bd05-64650a59c91d')); alias=default
+[15/Mar/2024 05:57:03] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 05:57:03] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:151] (0.001) SELECT 1 AS "a" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 1; args=(1, 'mentor1@gmail.com'); alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:181] (0.000) BEGIN; args=None; alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:151] (0.001) INSERT INTO "authorization_accounts" ("password", "last_login", "uuid", "created_at", "updated_at", "name", "contact_number", "email", "is_activated", "is_staff", "is_superuser", "is_active", "is_admin", "is_farmer_staff", "user_type") VALUES ('pbkdf2_sha256$720000$6AQsNbwEv3HyHd7qLwvHSk$0T4sfRn98CrDwtPxspF86H9fIsMtP4WCNCD9BzXQDiE=', NULL, '9694cc89-d4ef-4a3a-b663-aaedbaa9a911'::uuid, '2024-03-15T06:04:42.974949+00:00'::timestamptz, '2024-03-15T06:04:42.974968+00:00'::timestamptz, 'mentor1', '8136994511', 'mentor1@gmail.com', false, false, false, true, true, false, 'MENTOR'); args=('pbkdf2_sha256$720000$6AQsNbwEv3HyHd7qLwvHSk$0T4sfRn98CrDwtPxspF86H9fIsMtP4WCNCD9BzXQDiE=', None, UUID('9694cc89-d4ef-4a3a-b663-aaedbaa9a911'), datetime.datetime(2024, 3, 15, 6, 4, 42, 974949, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 6, 4, 42, 974968, tzinfo=datetime.timezone.utc), 'mentor1', '8136994511', 'mentor1@gmail.com', False, False, False, True, True, False, 'MENTOR'); alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:151] (0.001) INSERT INTO "authorization_address" ("uuid", "created_at", "updated_at", "account_id", "place", "city", "state", "zip_code", "about", "designation", "mentor_fee") VALUES ('62d10700-ae49-489b-8920-0e575aa28844'::uuid, '2024-03-15T06:04:42.980695+00:00'::timestamptz, '2024-03-15T06:04:42.980708+00:00'::timestamptz, '9694cc89-d4ef-4a3a-b663-aaedbaa9a911'::uuid, 'manappuram', 'kochi', 'kerala', '567536', NULL, 'lucturer in agruculture univercity', 100); args=(UUID('62d10700-ae49-489b-8920-0e575aa28844'), datetime.datetime(2024, 3, 15, 6, 4, 42, 980695, tzinfo=datetime.timezone.utc), datetime.datetime(2024, 3, 15, 6, 4, 42, 980708, tzinfo=datetime.timezone.utc), UUID('9694cc89-d4ef-4a3a-b663-aaedbaa9a911'), 'manappuram', 'kochi', 'kerala', '567536', None, 'lucturer in agruculture univercity', 100); alias=default
+[15/Mar/2024 06:04:42] DEBUG [django.db.backends:181] (0.003) COMMIT; args=None; alias=default
+[15/Mar/2024 06:06:33] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 21; args=('farmer1@gmail.com',); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:32.040113+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 32, 40113, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_address"; args=(); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_address"; args=(); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_address"."uuid", "authorization_address"."created_at", "authorization_address"."updated_at", "authorization_address"."account_id", "authorization_address"."place", "authorization_address"."city", "authorization_address"."state", "authorization_address"."zip_code", "authorization_address"."about", "authorization_address"."designation", "authorization_address"."mentor_fee", "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_address" INNER JOIN "authorization_accounts" ON ("authorization_address"."account_id" = "authorization_accounts"."uuid") ORDER BY "authorization_address"."created_at" DESC, "authorization_address"."uuid" DESC; args=(); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:32.144073+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 32, 144073, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:32] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:37.904379+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 37, 904379, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_accounts"; args=(); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_accounts"; args=(); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" ORDER BY "authorization_accounts"."created_at" DESC, "authorization_accounts"."uuid" DESC; args=(); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:37.965076+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 37, 965076, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:37] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:43.043550+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 43, 43550, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:181] (0.000) BEGIN; args=None; alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid LIMIT 21; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.003) SELECT "auth_group"."id", "auth_group"."name" FROM "auth_group" INNER JOIN "authorization_accounts_groups" ON ("auth_group"."id" = "authorization_accounts_groups"."group_id") WHERE "authorization_accounts_groups"."accounts_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.007) SELECT "auth_permission"."id", "auth_permission"."name", "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "authorization_accounts_user_permissions" ON ("auth_permission"."id" = "authorization_accounts_user_permissions"."permission_id") INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "authorization_accounts_user_permissions"."accounts_id" = 'a105044e-3571-4fff-b70e-000f0ab85ab2'::uuid ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(UUID('a105044e-3571-4fff-b70e-000f0ab85ab2'),); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'authorization' AND "django_content_type"."model" = 'accounts') LIMIT 21; args=('authorization', 'accounts'); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:181] (0.000) COMMIT; args=None; alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) DECLARE "_django_curs_139921041913408_sync_1" NO SCROLL CURSOR WITH HOLD FOR SELECT "auth_group"."id", "auth_group"."name" FROM "auth_group" ORDER BY "auth_group"."name" ASC; args=(); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) DECLARE "_django_curs_139921041913408_sync_2" NO SCROLL CURSOR WITH HOLD FOR SELECT "auth_permission"."id", "auth_permission"."name", "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 1 LIMIT 21; args=(1,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 1 LIMIT 21; args=(1,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 1 LIMIT 21; args=(1,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 1 LIMIT 21; args=(1,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 3 LIMIT 21; args=(3,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 3 LIMIT 21; args=(3,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 3 LIMIT 21; args=(3,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 3 LIMIT 21; args=(3,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 2 LIMIT 21; args=(2,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 2 LIMIT 21; args=(2,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 2 LIMIT 21; args=(2,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 2 LIMIT 21; args=(2,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 11 LIMIT 21; args=(11,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 11 LIMIT 21; args=(11,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 11 LIMIT 21; args=(11,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 11 LIMIT 21; args=(11,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 6 LIMIT 21; args=(6,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 6 LIMIT 21; args=(6,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 6 LIMIT 21; args=(6,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 6 LIMIT 21; args=(6,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 7 LIMIT 21; args=(7,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 7 LIMIT 21; args=(7,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 7 LIMIT 21; args=(7,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 7 LIMIT 21; args=(7,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 8 LIMIT 21; args=(8,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 8 LIMIT 21; args=(8,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 8 LIMIT 21; args=(8,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 8 LIMIT 21; args=(8,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 9 LIMIT 21; args=(9,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 9 LIMIT 21; args=(9,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 9 LIMIT 21; args=(9,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 9 LIMIT 21; args=(9,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 10 LIMIT 21; args=(10,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 10 LIMIT 21; args=(10,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 10 LIMIT 21; args=(10,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 10 LIMIT 21; args=(10,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 4 LIMIT 21; args=(4,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 4 LIMIT 21; args=(4,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 4 LIMIT 21; args=(4,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 4 LIMIT 21; args=(4,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 5 LIMIT 21; args=(5,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 5 LIMIT 21; args=(5,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 5 LIMIT 21; args=(5,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 5 LIMIT 21; args=(5,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 13 LIMIT 21; args=(13,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 13 LIMIT 21; args=(13,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 13 LIMIT 21; args=(13,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 13 LIMIT 21; args=(13,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 12 LIMIT 21; args=(12,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 12 LIMIT 21; args=(12,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 12 LIMIT 21; args=(12,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 12 LIMIT 21; args=(12,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 14 LIMIT 21; args=(14,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 14 LIMIT 21; args=(14,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 14 LIMIT 21; args=(14,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."id" = 14 LIMIT 21; args=(14,); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:43.219137+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 43, 219137, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:43] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:47] DEBUG [django.db.backends:151] (0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2024-03-15T06:07:47.474915+00:00'::timestamptz AND "django_session"."session_key" = 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph') LIMIT 21; args=(datetime.datetime(2024, 3, 15, 6, 7, 47, 474915, tzinfo=datetime.timezone.utc), 'ea85vsnapv4bpmgq4gohsi9hmkx1kwph'); alias=default
+[15/Mar/2024 06:07:47] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."uuid" = '42998454-1d99-4f58-a2fc-8065af737429'::uuid LIMIT 21; args=(UUID('42998454-1d99-4f58-a2fc-8065af737429'),); alias=default
+[15/Mar/2024 06:07:47] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_accounts"; args=(); alias=default
+[15/Mar/2024 06:07:47] DEBUG [django.db.backends:151] (0.000) SELECT COUNT(*) AS "__count" FROM "authorization_accounts"; args=(); alias=default
+[15/Mar/2024 06:07:47] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" ORDER BY "authorization_accounts"."created_at" DESC, "authorization_accounts"."uuid" DESC; args=(); alias=default
+[15/Mar/2024 06:08:04] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:04] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:21] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:21] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:22] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:22] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:33] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:33] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:37] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:37] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:43] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:08:43] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:08:49] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 21; args=('farmer1@gmail.com',); alias=default
+[15/Mar/2024 06:09:09] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:09:09] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:09:15] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:09:15] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:09:17] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:09:17] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:11:26] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:11:26] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:11:37] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:11:37] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:11:58] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:11:58] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:04] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 21; args=('farmer1@gmail.com',); alias=default
+[15/Mar/2024 06:12:22] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:22] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:27] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:27] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:29] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:29] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:31] DEBUG [django.db.backends:151] (0.006) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:31] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:44] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:44] DEBUG [django.db.backends:151] (0.002) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:48] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:48] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:12:49] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:12:49] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:13:08] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'farmer1@gmail.com' LIMIT 21; args=('farmer1@gmail.com',); alias=default
+[15/Mar/2024 06:13:17] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:13:51] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:13:56] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:14:12] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:15:32] DEBUG [django.db.backends:151] (0.006) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:32] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:34] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:34] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:36] DEBUG [django.db.backends:151] (0.006) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:36] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:38] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:38] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:41] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:41] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:43] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:43] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:46] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:46] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:50] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:50] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:54] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:54] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:15:56] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:15:56] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:16:34] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:16:34] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:16:44] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:16:44] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:16:46] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:16:46] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:16:47] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:16:47] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:16:56] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:17:10] DEBUG [django.db.backends:151] (0.006) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:10] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:12] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:12] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:14] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:14] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:17] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:17] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:20] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:20] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:22] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:22] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:24] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:24] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:25] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:25] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:27] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:17:35] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:17:45] DEBUG [django.db.backends:151] (0.001) SELECT "authorization_accounts"."password", "authorization_accounts"."last_login", "authorization_accounts"."uuid", "authorization_accounts"."created_at", "authorization_accounts"."updated_at", "authorization_accounts"."name", "authorization_accounts"."contact_number", "authorization_accounts"."email", "authorization_accounts"."is_activated", "authorization_accounts"."is_staff", "authorization_accounts"."is_superuser", "authorization_accounts"."is_active", "authorization_accounts"."is_admin", "authorization_accounts"."is_farmer_staff", "authorization_accounts"."user_type" FROM "authorization_accounts" WHERE "authorization_accounts"."email" = 'mentor1@gmail.com' LIMIT 21; args=('mentor1@gmail.com',); alias=default
+[15/Mar/2024 06:17:53] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:53] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:55] DEBUG [django.db.backends:151] (0.006) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:55] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:17:58] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:17:58] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:00] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:00] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:03] DEBUG [django.db.backends:151] (0.007) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:03] DEBUG [django.db.backends:151] (0.006) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:07] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:07] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:11] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:11] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:15] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:15] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:16] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:16] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:33] DEBUG [django.db.backends:151] (0.005) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:33] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:35] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:35] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:37] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:37] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:18:56] DEBUG [django.db.backends:151] (0.004) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:18:56] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:19:00] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:19:00] DEBUG [django.db.backends:151] (0.002) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:19:02] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:19:02] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:19:04] DEBUG [django.db.backends:151] (0.002) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:19:04] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:19:06] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:19:06] DEBUG [django.db.backends:151] (0.001) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+[15/Mar/2024 06:19:11] DEBUG [django.db.backends:151] (0.003) 
+            SELECT
+                c.relname,
+                CASE
+                    WHEN c.relispartition THEN 'p'
+                    WHEN c.relkind IN ('m', 'v') THEN 'v'
+                    ELSE 't'
+                END,
+                obj_description(c.oid, 'pg_class')
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('f', 'm', 'p', 'r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid)
+        ; args=None; alias=default
+[15/Mar/2024 06:19:11] DEBUG [django.db.backends:151] (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default

@@ -53,7 +53,7 @@ class Accounts(BaseModel, AbstractBaseUser, PermissionsMixin):
 
 # address
 class Address(BaseModel):
-    account = models.ForeignKey(to="authorization.Accounts", on_delete=models.CASCADE, related_name="my_addresses")
+    account = models.OneToOneField(to="authorization.Accounts", on_delete=models.CASCADE, related_name="my_addresses")
 
     # basic address information
     place = models.CharField(max_length=100, blank=True, null = True)

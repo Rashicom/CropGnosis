@@ -36,7 +36,7 @@ class UserLogin(APIView):
         if not email or not password:
             raise BadRequestException
         
-        user = authenticate(request,email=email, password=password)
+        user = authenticate(request,email=email, password=password, user_type="FARMER")
         if user is not None:
             refresh = RefreshToken.for_user(user)
             self.success_message = "Login successful"
@@ -109,4 +109,11 @@ class AccountAddress(generics.GenericAPIView):
         return Response(data)
 
 
+
+class UpdateAccount(generics.GenericAPIView):
+    serializer_class = None
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request, *args , **kwargs):
+        pass
 

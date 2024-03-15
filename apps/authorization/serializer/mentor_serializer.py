@@ -18,6 +18,8 @@ class MentorAddressSerializer(serializers.ModelSerializer):
             "mentor_fee":{"required":True},
         }
 
+
+# registration serializer
 class MentorRegistrationSerializer(serializers.ModelSerializer):
     my_addresses = MentorAddressSerializer()
     class Meta:
@@ -42,3 +44,10 @@ class MentorRegistrationSerializer(serializers.ModelSerializer):
             )
             Address.objects.create(**address, account=account)
         return account
+    
+
+class MentorAccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Accounts
+        fields = ["name", "contact_number"]
+    

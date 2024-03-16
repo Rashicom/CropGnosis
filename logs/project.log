@@ -79,3 +79,293 @@ Traceback (most recent call last):
   File "/home/rashid/Projects/CropGnosis/apps/authorization/views/mentor_view.py", line 87, in get
     return Response(serializer.user)
 AttributeError: 'MentorAddressSerializer' object has no attribute 'user'
+[16/Mar/2024 10:40:31] WARNING [django.request:241] Not Found: /api/auth/subscription/essential-features
+[16/Mar/2024 10:40:52] WARNING [django.request:241] Not Found: /api/subscription/essential-features
+[16/Mar/2024 10:44:35] WARNING [django.request:241] Unauthorized: /api/subscription/admin/essential-features
+[16/Mar/2024 10:45:08] WARNING [django.request:241] Forbidden: /api/subscription/admin/essential-features
+[16/Mar/2024 10:49:23] WARNING [django.request:241] Not Found: /
+[16/Mar/2024 10:49:24] WARNING [django.request:241] Not Found: /favicon.ico
+[16/Mar/2024 11:27:25] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `features_lt` is not valid for model `BaseSubscriptionPlans`.
+[16/Mar/2024 11:27:55] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'BaseSubscriptionPlans' object has no attribute 'features_lt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `features_lt` on serializer `BasePlanSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `BaseSubscriptionPlans` instance.
+Original exception text was: 'BaseSubscriptionPlans' object has no attribute 'features_lt'.
+[16/Mar/2024 11:28:10] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'ManyRelatedManager' object has no attribute 'feature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `feature` on serializer `EssentialFeaturSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `ManyRelatedManager` instance.
+Original exception text was: 'ManyRelatedManager' object has no attribute 'feature'.
+[16/Mar/2024 11:28:35] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'ManyRelatedManager' object has no attribute 'feature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `feature` on serializer `EssentialFeaturSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `ManyRelatedManager` instance.
+Original exception text was: 'ManyRelatedManager' object has no attribute 'feature'.
+[16/Mar/2024 11:29:23] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'ManyRelatedManager' object has no attribute 'feature'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `feature` on serializer `EssentialFeaturSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `ManyRelatedManager` instance.
+Original exception text was: 'ManyRelatedManager' object has no attribute 'feature'.
+[16/Mar/2024 11:31:22] ERROR [django.request:241] Internal Server Error: /api/common/base-plans
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/generics.py", line 199, in get
+    return self.list(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/mixins.py", line 46, in list
+    return Response(serializer.data)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 522, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 507, in to_representation
+    for field in fields:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 368, in _readable_fields
+    for field in self.fields.values():
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1117, in get_field_names
+    assert not (fields and exclude), (
+AssertionError: Cannot set both 'fields' and 'exclude' options on serializer EssentialFeaturSerializer.

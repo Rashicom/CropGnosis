@@ -32,14 +32,13 @@ class UserLogin(APIView):
     def post(self, request, *args, **kwargs):
         email = request.data.get("email")
         password = request.data.get("password")
-
         if not email or not password:
             raise BadRequestException
         
         user = authenticate(request,email=email, password=password)
 
         # user must be activated
-        if not user.is_activated:
+        if user and not user.is_activated:
             self.error_message = "uer is in inactive status"
             raise PermissionDeniedException
         

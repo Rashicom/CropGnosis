@@ -369,3 +369,12 @@ Traceback (most recent call last):
   File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/serializers.py", line 1117, in get_field_names
     assert not (fields and exclude), (
 AssertionError: Cannot set both 'fields' and 'exclude' options on serializer EssentialFeaturSerializer.
+[18/Mar/2024 05:14:08] WARNING [django.request:241] Not Found: /
+[18/Mar/2024 05:14:27] WARNING [django.request:241] Not Found: /api/subscription/
+[18/Mar/2024 05:14:35] WARNING [django.request:241] Method Not Allowed: /api/subscription/check-out
+[20/Mar/2024 03:41:37] WARNING [django.request:241] Not Found: /
+[20/Mar/2024 03:41:38] WARNING [django.request:241] Not Found: /favicon.ico
+[20/Mar/2024 03:41:49] WARNING [django.request:241] Not Found: /
+[20/Mar/2024 03:42:39] WARNING [django.request:241] Not Found: /
+[20/Mar/2024 03:42:45] WARNING [django.request:241] Not Found: /api/auth/login/
+[20/Mar/2024 03:43:00] WARNING [django.request:241] Method Not Allowed: /api/auth/customer/login

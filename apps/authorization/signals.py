@@ -6,7 +6,6 @@ from datetime import datetime
 
 @receiver(post_save, sender=Accounts)
 def create_new_account(sender, instance, created, **kwargs):
-    print("signal fired")
     # send sms if new account is created and user is not a staff
     if created and not instance.is_farmer_staff:
         today = datetime.now().date()

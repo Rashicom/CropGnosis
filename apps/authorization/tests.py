@@ -1,7 +1,8 @@
 from django.test import TestCase
-from rest_framework.test import APIRequestFactory, APIClient, APITestCase
+from rest_framework.test import APIRequestFactory, APIClient, APITestCase, force_authenticate
 from apps.authorization.views import customer_views, mentor_view
 from apps.authorization.models import Accounts
+import json
 
 """-------------------------Customer Tests--------------------------"""
 
@@ -63,4 +64,51 @@ class CustomerAccountRequestTest(APITestCase):
         self.assertEqual(response.status_code,401, "User type restriction Failed")
 
     
-    # TODO: account address testig
+    def test_account_address(self):
+
+        # test post
+        farmer_user = Accounts.objects.create_user(email="testuser@gmail.com", password="123", user_type="FARMER")
+        address_data = {
+            "place":"test_place",
+            "city":"test_city",
+            "state":"test_state",
+            "zip_code":"111111",
+            "about":"test about",
+            "designation":"test designation",
+            "mentor_fee":1000
+        }
+        factory = APIRequestFactory()
+        view = customer_views.AccountAddress.as_view()
+        request = factory.post(
+            "/api/customer/address",
+            address_data,
+            format='json'
+        )
+        force_authenticate(request,farmer_user)
+        response = view(request)
+        self.assertEqual(response.status_code, 200, "Address creation Failed")
+
+        # test patch
+        address_update = {"city":"edited city"}
+        request = factory.patch(
+            "/api/customer/address",
+            address_update,
+            format='json'
+        )
+        force_authenticate(request,farmer_user)
+        updation_response = view(request)
+        self.assertEqual(updation_response.status_code,200, "Address Updation Failed")
+        
+        # test data updated or not
+        self.assertContains(updation_response, "edited city", status_code=200)
+
+        # gest get
+        request = factory.get(
+            "/api/customer/address",
+            address_update,
+            format='json'
+        )
+        force_authenticate(request,farmer_user)
+        response = view(request)
+        self.assertContains(response,"edited city", status_code=200)
+

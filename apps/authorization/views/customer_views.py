@@ -65,18 +65,10 @@ class AccountAddress(generics.GenericAPIView):
         if not address:
             return Response({"data":"address not found"},status=200)
         serializer = self.serializer_class(address)
-
-        data = dict(serializer.data)
-
-        # remove mentor specific fields if the user is farmer
-        if request.user.user_type == "MENTOR":
-            data.pop("designation")
-            data.pop("mentor_fee")
         
         self.succuss_message = "Address fetched successfully"
-        return Response(data)
+        return Response(serializer.data)
         
-    
 
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(
@@ -85,34 +77,21 @@ class AccountAddress(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        data = dict(serializer.data)
-
-        # remove mentor specific fields if the user is farmer
-        if request.user.user_type == "MENTOR":
-            data.pop("designation")
-            data.pop("mentor_fee")
-
         self.succuss_message = "Address created successfully"
-        return Response(data)
+        return Response(serializer.data)
     
 
     def patch(self, request, *args, **kwargs):
         address = Address.objects.filter(account=request.user).last()
         if not address:
-            return Response({"data":"address not found"},status=200)
+            self.error_message = "Address not found"
+            raise BadRequestException
         serializer = self.serializer_class(address, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        
-        data = dict(serializer.data)
-
-        # remove mentor specific fields if the user is farmer
-        if request.user.user_type == "MENTOR":
-            data.pop("designation")
-            data.pop("mentor_fee")
 
         self.succuss_message = "Address updated successfully"
-        return Response(data)
+        return Response(serializer.data)
 
 
 

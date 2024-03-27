@@ -1,5 +1,7 @@
+from typing import Iterable
 from django.db import models
 import uuid
+from apps.common.utils.util_methods import generate_random_alphanumeric_string
 
 class BaseModel(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -93,4 +95,8 @@ class PaymentTransactions(BaseModel):
 
     payment_response = models.TextField(null=True, blank=True)
     status = models.BooleanField(default=False)
-
+    
+    def save(self, *args, **kwargs):
+        if not self.transaction_id:
+            self.transaction_id = generate_random_alphanumeric_string(length=16)
+        super(PaymentTransactions,self).save(*args, **kwargs)

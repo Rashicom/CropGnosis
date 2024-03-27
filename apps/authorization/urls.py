@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import common_views, customer_views, admin_views, mentor_view
+from .views import customer_views, admin_views, mentor_view
 
 urlpatterns = [
 

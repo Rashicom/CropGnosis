@@ -64,7 +64,10 @@ class Address(BaseModel):
     about = models.TextField(blank=True, null = True)
     designation = models.CharField(max_length=50, blank=True, null = True)
     mentor_fee = models.IntegerField(blank=True, null = True)
-    
+
+    # stripe cus id
+    stripe_cus_id = models.CharField(blank=True, null = True)
+
 
 
 # otp

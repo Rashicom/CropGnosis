@@ -234,6 +234,8 @@ LOGGING = {
     
 }
 
+# base url
+BASE_URL = "http://127.0.0.1:8000/"
 
 # Smtp config
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
@@ -242,3 +244,6 @@ EMAIL_HOST = env('EMAIL_HOST')
 EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+# stripe payment
+STRIPE_API_KEY = env('STRIPE_API_KEY')

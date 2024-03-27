@@ -378,3 +378,259 @@ AssertionError: Cannot set both 'fields' and 'exclude' options on serializer Ess
 [20/Mar/2024 03:42:39] WARNING [django.request:241] Not Found: /
 [20/Mar/2024 03:42:45] WARNING [django.request:241] Not Found: /api/auth/login/
 [20/Mar/2024 03:43:00] WARNING [django.request:241] Method Not Allowed: /api/auth/customer/login
+[26/Mar/2024 15:44:42] WARNING [django.request:241] Not Found: /api/check-out/
+[26/Mar/2024 15:45:09] WARNING [django.request:241] Not Found: /api/subscription/check-out/
+[26/Mar/2024 15:45:18] WARNING [django.request:241] Not Found: /api/subscriptions/check-out/
+[26/Mar/2024 15:46:38] ERROR [django.request:241] Internal Server Error: /api/subscription/check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 25, in get
+    return render("checkout.html")
+TypeError: render() missing 1 required positional argument: 'template_name'
+[26/Mar/2024 15:47:20] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[26/Mar/2024 15:47:22] WARNING [django.request:241] Not Found: /create-checkout-session
+[26/Mar/2024 15:47:46] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[26/Mar/2024 15:47:47] WARNING [django.request:241] Not Found: /favicon.ico
+[26/Mar/2024 16:04:42] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[26/Mar/2024 17:25:43] WARNING [django.request:241] Not Found: /
+[26/Mar/2024 17:34:03] ERROR [django.request:241] Internal Server Error: /api/subscription/check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 27, in post
+    stripe_customer_id = user_address.remark.get("stripe_customer_id")
+AttributeError: 'NoneType' object has no attribute 'get'
+[27/Mar/2024 06:47:56] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 24, in post
+    self.error_response("subscription_plan is required")
+AttributeError: 'SubscriptionCheckOut' object has no attribute 'error_response'
+[27/Mar/2024 06:48:47] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 24, in post
+    self.error_messages("subscription_plan is required")
+AttributeError: 'SubscriptionCheckOut' object has no attribute 'error_messages'
+[27/Mar/2024 06:49:02] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 24, in post
+    self.error_message("subscription_plan is required")
+AttributeError: 'SubscriptionCheckOut' object has no attribute 'error_message'
+[27/Mar/2024 06:51:15] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 24, in post
+    self.error_message("subscription_plan is required")
+AttributeError: 'SubscriptionCheckOut' object has no attribute 'error_message'
+[27/Mar/2024 06:52:22] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 24, in post
+    self.error_message("subscription_plan is required")
+AttributeError: 'SubscriptionCheckOut' object has no attribute 'error_message'
+[27/Mar/2024 06:53:18] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'type'>`
+[27/Mar/2024 06:53:31] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `<class 'type'>`
+[27/Mar/2024 06:54:01] WARNING [django.request:241] Bad Request: /api/subscription/subscription-check-out
+[27/Mar/2024 06:59:10] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 06:59:35] WARNING [django.request:241] Not Found: /
+[27/Mar/2024 07:00:23] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 07:25:55] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 33, in post
+    transaction = PaymentTransactions.objects.create(
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/models.py", line 102, in save
+    super(PaymentTransactions,self).save(args, **kwargs)
+TypeError: Model.save() got multiple values for argument 'force_insert'
+[27/Mar/2024 07:26:36] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/views/customer_views.py", line 33, in post
+    transaction = PaymentTransactions.objects.create(
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-irOgLtvg-py3.10/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/rashid/Projects/CropGnosis/apps/subscription/models.py", line 102, in save
+    super(PaymentTransactions,self).save(args, **kwargs)
+TypeError: Model.save() got multiple values for argument 'force_insert'
+[27/Mar/2024 07:31:13] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 07:57:14] WARNING [django.request:241] Not Found: /api/main/verify-scrubbing-logs
+[27/Mar/2024 08:27:47] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 08:32:23] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 08:35:57] WARNING [django.request:241] Not Found: /favicon.ico
+[27/Mar/2024 08:36:26] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 08:56:12] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 09:02:48] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 09:03:16] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 09:13:06] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 09:13:51] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+[27/Mar/2024 09:14:51] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out

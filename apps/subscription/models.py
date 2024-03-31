@@ -30,7 +30,6 @@ class BaseSubscriptionPlans(BaseModel):
 
 
 
-
 # plan features
 class EssentialFeatures(BaseModel):
     """
@@ -61,6 +60,8 @@ class PaymentTransactions(BaseModel):
         "IOT_INTEGRATION":"IOT_INTEGRATION"
     }
     paid_for = models.CharField(choices=PAID_FOR_CHOICES, max_length=50)
+    transaction_id = models.CharField(max_length=50, null=True, blank=True)
+    stripe_session_id = models.CharField(max_length=50, null=True, blank=True)
 
     # payed for foreign keys
     subscription_plan = models.ForeignKey(
@@ -77,15 +78,14 @@ class PaymentTransactions(BaseModel):
         blank=True, null=True
     )
 
-    mentor = models.ForeignKey(
-        to="authorization.Accounts",
+    mentor_plan = models.ForeignKey(
+        to="authorization.MentorBaseSubscriptionPlans",
         on_delete=models.CASCADE,
         related_name="forme_transactions",
         blank=True, null=True
     )
 
     amount = models.FloatField(null=True, blank=True)
-    transaction_id = models.CharField(max_length=50, null=True, blank=True)
     invoice_pdf = models.FileField(upload_to="invoices", max_length=5000, null=True, blank=True)
     created_by = models.ForeignKey(
         to="authorization.Accounts",

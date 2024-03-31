@@ -115,18 +115,43 @@ class PlanFeaturesThrough(BaseModel):
         to="subscription.EssentialFeatures",
         on_delete=models.CASCADE,
     )
-    feature_type = models.CharField(choices=TYPE_CHOICES)
+    feature_type = models.CharField(choices=TYPE_CHOICES, default="BASE_SUBSCRIPTION_FEATURE")
 
 
 
 
 """-----------------Mentor  Subsctiptions-----------------"""
-    
+# Mentor base subscription
+class MentorBaseSubscriptionPlans(models.Model):
+    """
+    Mentors can have 3 periodicity plans.
+    they can add up to 3 plans. all the plans list outed for farmers
+    """
+    PERIODICITY_CHOICES = {
+        "WEEKLY": "WEEKLY",
+        "MONTHLY": "MONTHLY",
+        "YEARLY": "YEARLY",
+    }
+    mentor = models.ForeignKey(
+        to="authorization.Accounts",
+        on_delete=models.CASCADE,
+        related_name="my_plans"
+    )
+    periodicity = models.CharField(max_length=50)
+    amount = models.FloatField()
+
+
+
 # Mentor subscription
 # Mentor subscription not depends on the base plan
 # user can contact mentor even theire base plan is expired if they have a mentor plan
 # Data processing and data collection are suspended if base plan is expired, but they can see the previously generated data
 class MentorSubscriptions(BaseModel):
+    mentor_base_plan = models.ForeignKey(
+        to="authorization.MentorBaseSubscriptionPlans",
+        on_delete=models.CASCADE,
+        related_name="mentor_subscription_set"
+    )
     farmer = models.ForeignKey(
         to="authorization.Accounts",
         on_delete=models.CASCADE,

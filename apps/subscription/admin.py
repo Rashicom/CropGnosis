@@ -29,7 +29,7 @@ class PaymentTransactionsAdmin(admin.ModelAdmin):
         "paid_for",
         "subscription_plan",
         "addon",
-        "mentor",
+        "mentor_plan",
         "amount",
         "transaction_id",
         "invoice_pdf",

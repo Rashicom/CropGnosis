@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Accounts, Address
+from ..models import Accounts, Address, MentorBaseSubscriptionPlans
 from django.db import transaction
 from django.contrib.auth.hashers import make_password
 
@@ -51,3 +51,8 @@ class MentorAccountSerializer(serializers.ModelSerializer):
         model = Accounts
         fields = ["name", "contact_number"]
     
+
+class MentorBaseSubscriptionPlansSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MentorBaseSubscriptionPlans
+        fields = "__all__"

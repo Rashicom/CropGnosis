@@ -1083,3 +1083,435 @@ LINE 1: ...", "subscription_paymenttransactions"."addon_id", "subscript...
                                                              ^
 
 [31/Mar/2024 09:43:03] WARNING [django.request:241] Not Found: /
+[31/Mar/2024 15:10:41] WARNING [django.request:241] Not Found: /
+[31/Mar/2024 15:15:44] WARNING [django.request:241] Not Found: /admim
+[31/Mar/2024 15:15:46] WARNING [django.request:241] Not Found: /admim
+[31/Mar/2024 15:19:44] WARNING [django.request:241] Not Found: /api/auth/customer/mentor-registration
+[31/Mar/2024 15:22:30] WARNING [django.request:241] Not Found: /api/auth/mentor/mentor-registration
+[31/Mar/2024 15:22:50] WARNING [django.request:241] Unauthorized: /api/auth/mentor/registration
+[31/Mar/2024 15:23:28] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[31/Mar/2024 15:26:00] WARNING [django.request:241] Bad Request: /api/auth/mentor/add-basementorplan
+[31/Mar/2024 15:28:01] WARNING [django.request:241] Bad Request: /api/auth/mentor/add-basementorplan
+[31/Mar/2024 15:30:44] WARNING [django.request:241] Bad Request: /api/auth/mentor/add-basementorplan
+[31/Mar/2024 15:33:54] ERROR [django.request:241] Internal Server Error: /admin/authorization/mentorsubscriptions/
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column authorization_mentorbasesubscriptionplans.uuid does not exist
+LINE 1: ...tion_mentorsubscriptions"."mentor_base_plan_id" = "authoriza...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "authorization_mentorbasesubscriptionplans.id".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 715, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 2123, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column authorization_mentorbasesubscriptionplans.uuid does not exist
+LINE 1: ...tion_mentorsubscriptions"."mentor_base_plan_id" = "authoriza...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "authorization_mentorbasesubscriptionplans.id".
+
+[31/Mar/2024 15:42:37] ERROR [django.request:241] Internal Server Error: /admin/authorization/mentorsubscriptions/
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedFunction: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 715, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 2123, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[31/Mar/2024 15:43:07] ERROR [django.request:241] Internal Server Error: /admin/authorization/mentorsubscriptions/
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedFunction: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 715, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 2123, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[31/Mar/2024 15:44:11] ERROR [django.request:241] Internal Server Error: /admin/authorization/mentorsubscriptions/
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedFunction: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 715, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/contrib/admin/options.py", line 2123, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: operator does not exist: bigint = uuid
+LINE 1: ...zation_mentorsubscriptions"."mentor_base_plan_id" = "authori...
+                                                             ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+
+[01/Apr/2024 02:42:02] WARNING [django.request:241] Not Found: /
+[01/Apr/2024 02:42:59] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[21/Apr/2024 11:14:14] WARNING [django.request:241] Not Found: /
+[21/Apr/2024 11:17:13] WARNING [django.request:241] Bad Request: /api/auth/customer/registration
+[21/Apr/2024 11:17:17] WARNING [django.request:241] Bad Request: /api/auth/customer/registration
+[21/Apr/2024 11:19:35] WARNING [django.request:241] Unauthorized: /api/auth/customer/address
+[21/Apr/2024 11:19:51] WARNING [django.request:241] Unauthorized: /api/auth/customer/address
+[21/Apr/2024 11:21:27] WARNING [django.request:241] Unauthorized: /api/auth/customer/address
+[21/Apr/2024 11:21:46] WARNING [django.request:241] Unauthorized: /api/auth/customer/address
+[21/Apr/2024 11:25:12] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[21/Apr/2024 11:26:48] WARNING [django.request:241] Forbidden: /api/auth/mentor/login
+[21/Apr/2024 11:30:47] WARNING [django.request:241] Unauthorized: /api/auth/mentor/update-account
+[21/Apr/2024 11:33:44] WARNING [django.request:241] Not Found: /api/auth/mentor/update-address
+[21/Apr/2024 11:35:11] WARNING [django.request:241] Unauthorized: /api/auth/mentor/address
+[21/Apr/2024 11:36:38] WARNING [django.request:241] Not Found: /api/auth/mentor/add-basementorplan
+[21/Apr/2024 11:39:53] WARNING [django.request:241] Unauthorized: /api/common/base-plans
+[23/Apr/2024 03:57:41] WARNING [django.request:241] Not Found: /
+[23/Apr/2024 03:57:42] WARNING [django.request:241] Not Found: /favicon.ico
+[23/Apr/2024 04:09:18] WARNING [django.request:241] Not Found: /
+[23/Apr/2024 04:09:26] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:09:36] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:09:39] WARNING [django.request:241] Bad Request: /api/subscription/subscription-check-out
+[23/Apr/2024 04:09:51] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:13:19] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:13:22] ERROR [django.request:241] Internal Server Error: /api/subscription/subscription-check-out
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.StringDataRightTruncation: value too long for type character varying(50)
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/Projects/CropGnisis/CropGnosis/apps/subscription/views/customer_views.py", line 60, in post
+    transaction.save()
+  File "/home/rashid/Projects/CropGnisis/CropGnosis/apps/subscription/models.py", line 190, in save
+    super(PaymentTransactions,self).save(*args, **kwargs)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/base.py", line 1036, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/base.py", line 1101, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1990, in execute_sql
+    cursor = super().execute_sql(result_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/rashid/.cache/pypoetry/virtualenvs/cropgnosis-p5HYragw-py3.11/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.DataError: value too long for type character varying(50)
+
+[23/Apr/2024 04:17:53] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:20:00] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:21:03] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 04:23:48] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:27:23] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:28:07] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:28:59] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:30:04] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:30:10] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:41:44] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:42:24] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[23/Apr/2024 04:51:43] WARNING [django.request:241] Not Found: /api/subscription/style.css

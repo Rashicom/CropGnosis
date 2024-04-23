@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BaseSubscriptionPlans, EssentialFeatures, PaymentTransactions
+from .models import BaseSubscriptionPlans, EssentialFeatures, PaymentTransactions, AccountSubscription, MentorBaseSubscriptionPlans, MentorSubscriptions
 
 
 @admin.register(BaseSubscriptionPlans)
@@ -36,4 +36,31 @@ class PaymentTransactionsAdmin(admin.ModelAdmin):
         "created_by",
         "payment_response",
         "status"
+    )
+
+
+
+@admin.register(AccountSubscription)
+class AccountSubscriptionAdmin(admin.ModelAdmin):
+    list_display = (
+        "user",
+        "base_plan",
+        "valied_till"
+    )
+
+
+@admin.register(MentorSubscriptions)
+class MentorSubscriptionsAdmin(admin.ModelAdmin):
+    list_display = (
+        "farmer",
+        "mentor",
+        "valied_till"
+    )
+
+@admin.register(MentorBaseSubscriptionPlans)
+class MentorBaseSubscriptionPlansAdmin(admin.ModelAdmin):
+    list_display = (
+        "mentor",
+        "periodicity",
+        "amount"
     )

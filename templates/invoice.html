@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{margin-top:20px;
+        background-color: #ffffff;
+        }
+        #invoice {
+            padding: 0px;
+        }
+
+        .invoice {
+            position: relative;
+            background-color: #FFF;
+            min-height: 680px;
+            padding: 15px
+        }
+
+        .invoice header {
+            padding: 10px 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #0d6efd
+        }
+
+        .invoice .company-details {
+            text-align: right
+        }
+
+        .invoice .company-details .name {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .contacts {
+            margin-bottom: 20px
+        }
+
+        .invoice .invoice-to {
+            text-align: left
+        }
+
+        .invoice .invoice-to .to {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice .invoice-details {
+            text-align: right
+        }
+
+        .invoice .invoice-details .invoice-id {
+            margin-top: 0;
+            color: #0d6efd
+        }
+
+        .invoice main {
+            padding-bottom: 50px
+        }
+
+        .invoice main .thanks {
+            margin-top: -100px;
+            font-size: 2em;
+            margin-bottom: 50px
+        }
+
+        .invoice main .notices {
+            padding-left: 6px;
+            border-left: 6px solid #0d6efd;
+            background: #e7f2ff;
+            padding: 10px;
+        }
+
+        .invoice main .notices .notice {
+            font-size: 1.2em
+        }
+
+        .invoice table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px
+        }
+
+        .invoice table td,
+        .invoice table th {
+            padding: 15px;
+            background: #eee;
+            border-bottom: 1px solid #fff
+        }
+
+        .invoice table th {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 16px
+        }
+
+        .invoice table td h3 {
+            margin: 0;
+            font-weight: 400;
+            color: #0d6efd;
+            font-size: 1.2em
+        }
+
+        .invoice table .qty,
+        .invoice table .total,
+        .invoice table .unit {
+            text-align: right;
+            font-size: 1.2em
+        }
+
+        .invoice table .no {
+            color: #fff;
+            font-size: 1.6em;
+            background: #0d6efd
+        }
+
+        .invoice table .unit {
+            background: #ddd;
+            text-align: center;
+
+        }
+
+        .invoice table .total {
+            background: #0d6efd;
+            color: #fff
+        }
+
+        .invoice table tbody tr:last-child td {
+            border: none
+        }
+
+        .invoice table tfoot td {
+            background: 0 0;
+            border-bottom: none;
+            white-space: nowrap;
+            text-align: right;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-top: 1px solid #aaa
+        }
+
+        .invoice table tfoot tr:first-child td {
+            border-top: none
+        }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0px solid rgba(0, 0, 0, 0);
+            border-radius: .25rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+        }
+
+        .invoice table tfoot tr:last-child td {
+            color: #0d6efd;
+            font-size: 1.4em;
+            border-top: 1px solid #0d6efd
+        }
+
+        .invoice table tfoot tr td:first-child {
+            border: none
+        }
+
+        .invoice footer {
+            width: 100%;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #aaa;
+            padding: 8px 0
+        }
+
+        @media print {
+            .invoice {
+                font-size: 11px !important;
+                overflow: hidden !important
+            }
+            .invoice footer {
+                position: absolute;
+                bottom: 10px;
+                page-break-after: always
+            }
+            .invoice>div:last-child {
+                page-break-before: always
+            }
+        }
+
+        .invoice main .notices {
+            padding-left: 6px;
+            border-left: 6px solid #0d6efd;
+            background: #e7f2ff;
+            padding: 10px;
+        }
+        .name {
+            text-align: center;
+        }
+        .container {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div id="invoice">
+                    <div class="invoice overflow-auto">
+                        <div style="min-width: 600px">
+                            <header>
+                                <div class="row">
+                                    <div class="col company-details">
+                                        <h1 class="name">
+                                            <a target="_blank" href="javascript:;">
+                                        User Report
+                                        </a>
+                                        </h1>       
+                                    </div>
+                                </div>
+                            </header>
+                            <main>
+                                <div class="row contacts">
+                                    <div class="col invoice-to">
+                                        <div class="text-gray-light">INVOICE TO:</div>
+                                        <h2 class="to">{{name}}</h2>
+                                        <div class="address">address not found</div>
+                                        <div class="email"><a href="mailto:john@example.com">notfound@example.com</a>
+                                        </div>
+                                    </div>
+                                    <div class="col invoice-details">
+                                        <h1 class="invoice-id">{{luckydraw_data.0}}</h1>
+                                        <div class="date">Date of Invoice: {{date_range.0}} - {{date_range.1}}</div>
+                                        <div class="date">Drow time: {{luckydraw_data.1}}</div>
+                                    </div>
+                                </div>
+
+                                <!--  coupen type table -->
+                                <div style="text-align: center; background-color: #e7f2ff;">
+                                    <h2 class="invoice-id" style="margin: 0; color: #2d2d2d;">PRICE DETAILES</h2>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="text-right">COUPEN NUMBER</th>
+                                            <th class="text-right">COUNT</th>
+                                            <th class="text-right">PRICE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        {% for data in pdf_data %}
+
+                                            <tr>
+                                                <td class="unit">{{data.0}}</td>
+                                                <td class="qty">{{data.1}}</td>
+                                                <td class="total">₹{{data.2}}</td>
+                                            </tr>
+                                        
+                                        {% endfor %}
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2">TOTAL WIINING AMOUNT</td>
+                                            <td>₹{{accounts_dict.total_winning_prize}}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+
+                                <!-- price details table -->
+                                
+                                <div style="text-align: center; background-color: #e7f2ff;">
+                                    <h2 class="invoice-id" style="margin: 0; color: #2d2d2d;">COUPEN DETAILES</h2>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr> 
+                                            <th class="text-right">COUPEN TYPE</th>
+                                            <th class="text-right">TYPE TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="unit">BLOCK TOTAL</td>
+                                            <td class="total">₹{{accounts_dict.BLOCK}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="unit">BOX TOTAL</td>
+                                            <td class="total">₹{{accounts_dict.BOX}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="unit">SUPER TOTAL</td>
+                                            <td class="total">₹{{accounts_dict.SUPER}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="1">TOTAL COUPEN AMOUNT</td>
+                                            <td>₹{{accounts_dict.total_sum}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">TOTAL WIINING AMOUNT</td>
+                                            <td>₹{{accounts_dict.total_winning_prize}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="1">ACCOUNT BALANCE</td>
+                                            <td>₹{{accounts_dict.account_balance}}</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                                <div class="notices">
+                                    <div>NOTICE:</div>
+                                    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                                </div>
+                            </main>
+                            <footer>Invoice was created on a computer and is valid without the signature and seal.</footer>
+                        </div>
+                        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

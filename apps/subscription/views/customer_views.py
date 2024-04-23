@@ -22,8 +22,8 @@ class SubscriptionCheckOut(generics.GenericAPIView):
         """
 
         # TESTING REMOVE IN PRODUCTION
-        created_by = Accounts.objects.filter(email="rashi.kp484@gmail.com").last()
-        subscription_plan_uuid = "b04a3dd4-7c7a-48e7-933d-b8656b6e595d"
+        created_by = Accounts.objects.filter(email="farmer1@gmail.com").last()
+        subscription_plan_uuid = "93002d13-20f4-4530-9738-9966fb68939b"
 
         # PRODUCTION CONFIG
         # subscription_plan_uuid = request.data.get("subscription_plan")
@@ -81,6 +81,7 @@ class PaymentSuccessCallback(generics.GenericAPIView):
         # fetch oder details from stripe
         session_id = request.GET.get("session_id")
         if not session_id:
+            print("no session_id found: {session_id}")
             raise BadRequestException
         
         transaction = PaymentTransactions.objects.filter(stripe_session_id=session_id, status=False).last()
@@ -89,8 +90,9 @@ class PaymentSuccessCallback(generics.GenericAPIView):
         
         try:
             payment = StripePayment(transaction.created_by, transaction)
-            payment.confirm_payment()
+            payment.confirm_payment(session_id)
         except Exception as e:
+            print(e)
             return Response(status=500)
 
         return Response(status=200)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Accounts, Address, Otp, AccountSubscription, MentorSubscriptions
+from .models import Accounts, Address, Otp
 
 
 @admin.register(Accounts)
@@ -28,7 +28,6 @@ class AddressAdmin(admin.ModelAdmin):
         "zip_code",
         "about",
         "designation",
-        "mentor_fee"
     )
 
 
@@ -38,23 +37,5 @@ class OtpAdmin(admin.ModelAdmin):
         "account",
         "otp_code",
         "is_used"
-    )
-
-
-@admin.register(AccountSubscription)
-class AccountSubscriptionAdmin(admin.ModelAdmin):
-    list_display = (
-        "user",
-        "base_plan",
-        "valied_till"
-    )
-
-
-@admin.register(MentorSubscriptions)
-class MentorSubscriptionsAdmin(admin.ModelAdmin):
-    list_display = (
-        "farmer",
-        "mentor",
-        "valied_till"
     )
 

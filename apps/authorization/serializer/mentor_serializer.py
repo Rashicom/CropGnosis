@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Accounts, Address, MentorBaseSubscriptionPlans
+from ..models import Accounts, Address
 from django.db import transaction
 from django.contrib.auth.hashers import make_password
 
@@ -8,14 +8,13 @@ from django.contrib.auth.hashers import make_password
 class MentorAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = ["place","city","state","zip_code","about", "designation", "mentor_fee"]
+        fields = ["place","city","state","zip_code","about", "designation"]
         extra_kwargs = {
             "place":{"required":True},
             "city":{"required":True},
             "state":{"required":True},
             "zip_code":{"required":True},
             "designation":{"required":True},
-            "mentor_fee":{"required":True},
         }
 
 
@@ -51,8 +50,3 @@ class MentorAccountSerializer(serializers.ModelSerializer):
         model = Accounts
         fields = ["name", "contact_number"]
     
-
-class MentorBaseSubscriptionPlansSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MentorBaseSubscriptionPlans
-        fields = "__all__"

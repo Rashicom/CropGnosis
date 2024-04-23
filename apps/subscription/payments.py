@@ -3,8 +3,8 @@ import stripe
 from datetime import datetime
 from datetime import timedelta
 from apps.common.utils.exceptions import NotFoundException, UnhandledException
-from apps.subscription.models import PaymentTransactions
-from apps.authorization.models import AccountSubscription, PlanFeaturesThrough, MentorSubscriptions
+from apps.subscription.models import PaymentTransactions, AccountSubscription, PlanFeaturesThrough, MentorSubscriptions
+
 # set stripe globally
 stripe.api_key = settings.STRIPE_API_KEY
 
@@ -128,12 +128,12 @@ class StripePayment(BasePayment):
 
         # validity is the todays date + number of days of validity
         validity_till = datetime.now().date() + timedelta(days=payment_obj.subscription_plan.plan_validity)
-        AccountSubscription.objects.create(
+        subscription_obj = AccountSubscription.objects.create(
             user=self.user,
             base_plan=payment_obj.subscription_plan,
-            plan_features=payment_obj.subscription_plan.features,
             valied_till=validity_till
         )
+        subscription_obj.plan_features.set(payment_obj.subscription_plan.features.all())
 
 
     def _update_add_on_plan(self, payment_obj):

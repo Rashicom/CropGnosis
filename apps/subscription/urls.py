@@ -5,6 +5,7 @@ urlpatterns = [
     
     path("subscription-checkout", customer_views.SubscriptionCheckOut.as_view()),
     path("addon-checkout", customer_views.AddonPlanCheckout.as_view()),
+    path("mentorsubscription-checkout", customer_views.MentorSubscriptionCheckout.as_view()),
     path("payment-success-callback", customer_views.PaymentSuccessCallback.as_view()),
     path("payment-cancell-callback", customer_views.PaymentCancellCallback.as_view()),
     

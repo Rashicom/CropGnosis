@@ -7,7 +7,7 @@ from apps.common.utils.exceptions import BadRequestException
 from django.shortcuts import redirect, render
 from ..payments import StripePayment
 from apps.authorization.models import Accounts
-from ..models import AccountSubscription, EssentialFeatures
+from ..models import AccountSubscription, EssentialFeatures, MentorBaseSubscriptionPlans
 
 
 
@@ -141,13 +141,53 @@ class AddonPlanCheckout(generics.GenericAPIView):
 # Mentor checkout
 class MentorSubscriptionCheckout(generics.GenericAPIView):
 
-
     def post(self, request):
         """
         Subscribe a mentor
-        accept : mentor_uuid <uuid>
+        accept : mentor_plan_uuid <uuid>
         """
-        pass
+
+        # TESTING REMOVE IN PRODUCTION
+        user = Accounts.objects.filter(email="mentor1@gmail.com").last()
+        mentor_plan_uuid = "265d2359-75f7-48d2-9601-d067c3d4c257"
+
+        # PRODUCTION CONFIG
+        # mentor_plan_uuid = request.data.get("mentor_plan")
+        # created_by = request.user
+
+        if not mentor_plan_uuid:
+            self.error_message = "mentor plan is required"
+            raise BadRequestException
+        
+        mentor_plan_obj = MentorBaseSubscriptionPlans.objects.filter(pk=mentor_plan_uuid).last()
+        if not mentor_plan_obj:
+            self.error_message = "Mentor plan not found"
+            raise BadRequestException
+        
+        # create transaction
+        transaction = PaymentTransactions.objects.create(
+            paid_for = "MENTOR",
+            mentor_plan = mentor_plan_obj,
+            amount = mentor_plan_obj.amount,
+            # created_by = request.user
+            created_by = user
+        )
+
+        try:
+            payment = StripePayment(user, transaction)
+            checkout_session = payment.checkout()
+        except Exception as e:
+            print(e)
+            self.error_message = "Payment Failed"
+            return Response(status=500)
+        
+        # update session id in db
+        transaction.stripe_session_id = checkout_session.id
+        transaction.save()
+
+        # redirect to stripe checkout
+        return redirect(checkout_session.url, status=300)
+
 
     def get(self, request):
         """

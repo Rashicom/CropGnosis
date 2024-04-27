@@ -1637,3 +1637,6 @@ Traceback (most recent call last):
            ^
 TypeError: 'ModelBase' object is not iterable
 [27/Apr/2024 12:04:52] WARNING [django.request:241] Unauthorized: /api/common/mentor-plans
+[27/Apr/2024 12:23:40] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[27/Apr/2024 12:24:41] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
+[27/Apr/2024 12:31:00] WARNING [django.request:241] Not Found: /api/subscription/style.css

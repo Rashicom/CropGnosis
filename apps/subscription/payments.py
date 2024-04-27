@@ -171,7 +171,7 @@ class StripePayment(BasePayment):
         MentorSubscriptions.objects.create(
             mentor_base_plan=payment_obj.mentor_plan,
             farmer=payment_obj.created_by,
-            mentor=payment_obj.mentor,
+            mentor=payment_obj.mentor_plan.mentor,
             valied_till=valied_till
         )
 

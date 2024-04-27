@@ -77,13 +77,13 @@ class AddonPlanCheckout(generics.GenericAPIView):
     
     def post(self, request):
         """
-        Subscribe to a Base subscription plan
+        Purchase addon subscription plan
         accept : addon_plan <uuid>
         """
 
         # TESTING REMOVE IN PRODUCTION
         user = Accounts.objects.filter(email="farmer1@gmail.com").last()
-        addon_plan_uuid = "3a099c72-1ad0-4b15-baa6-c3324e74ee95"
+        addon_plan_uuid = "44159ccc-a452-4386-b171-1e86f9810638"
 
         # PRODUCTION CONFIG
         # addon_plan_uuid = request.data.get("addon_plan")
@@ -131,7 +131,24 @@ class AddonPlanCheckout(generics.GenericAPIView):
         return redirect(checkout_session.url, status=300)
 
         
+    def get(self, request):
+        """
+        this is for test, html is handled in frond end
+        """
+        return render(request,"checkout.html")
     
+
+# Mentor checkout
+class MentorSubscriptionCheckout(generics.GenericAPIView):
+
+
+    def post(self, request):
+        """
+        Subscribe a mentor
+        accept : mentor_uuid <uuid>
+        """
+        pass
+
     def get(self, request):
         """
         this is for test, html is handled in frond end

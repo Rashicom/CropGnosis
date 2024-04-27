@@ -3,7 +3,8 @@ from .views import admin_views, customer_views, mentor_views
 
 urlpatterns = [
     
-    path("subscription-check-out", customer_views.SubscriptionCheckOut.as_view()),
+    path("subscription-checkout", customer_views.SubscriptionCheckOut.as_view()),
+    path("addon-checkout", customer_views.AddonPlanCheckout.as_view()),
     path("payment-success-callback", customer_views.PaymentSuccessCallback.as_view()),
     path("payment-cancell-callback", customer_views.PaymentCancellCallback.as_view()),
     

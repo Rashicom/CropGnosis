@@ -38,6 +38,9 @@ class PaymentTransactionsAdmin(admin.ModelAdmin):
         "status"
     )
 
+class RouteThroughInline(admin.TabularInline):
+    model = PlanFeaturesThrough
+    extra = 1
 
 
 @admin.register(AccountSubscription)
@@ -45,9 +48,18 @@ class AccountSubscriptionAdmin(admin.ModelAdmin):
     list_display = (
         "user",
         "base_plan",
+        "get_feature_display",
         "valied_till"
     )
+    inlines = [RouteThroughInline]
 
+    def get_feature_display(self, obj):
+        if obj.plan_features.exists():
+            return ", ".join([feature.feature if feature.feature else "Unknown" for feature in obj.plan_features.all()])
+        return ""
+    
+    get_feature_display.short_description = "Plan Features"
+    get_feature_display.admin_order_field = "feature__feature"
 
 @admin.register(MentorSubscriptions)
 class MentorSubscriptionsAdmin(admin.ModelAdmin):

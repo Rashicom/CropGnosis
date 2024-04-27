@@ -118,7 +118,7 @@ class MentorBaseSubscriptionPlans(BaseModel):
         on_delete=models.CASCADE,
         related_name="my_plans"
     )
-    periodicity = models.CharField(max_length=50)
+    periodicity = models.CharField(max_length=50, choices=PERIODICITY_CHOICES)
     amount = models.FloatField()
 
 

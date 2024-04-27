@@ -1515,3 +1515,7 @@ django.db.utils.DataError: value too long for type character varying(50)
 [23/Apr/2024 04:41:44] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
 [23/Apr/2024 04:42:24] ERROR [django.request:241] Internal Server Error: /api/subscription/payment-success-callback
 [23/Apr/2024 04:51:43] WARNING [django.request:241] Not Found: /api/subscription/style.css
+[23/Apr/2024 05:59:19] WARNING [django.request:241] Not Found: /
+[27/Apr/2024 08:52:20] WARNING [django.request:241] Not Found: /
+[27/Apr/2024 08:52:21] WARNING [django.request:241] Not Found: /favicon.ico
+[27/Apr/2024 08:55:14] WARNING [django.request:241] Unauthorized: /api/subscription/subscription-check-out

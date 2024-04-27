@@ -2,6 +2,7 @@ from typing import Iterable
 from django.db import models
 import uuid
 from apps.common.utils.util_methods import generate_random_alphanumeric_string
+from datetime import datetime
 
 class BaseModel(models.Model):
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -24,7 +25,8 @@ class BaseSubscriptionPlans(BaseModel):
     total_price = models.FloatField() # cumulative price of all features
     discounted_price = models.FloatField() # base subscription price
     crop_field_count = models.IntegerField()
-    plan_validity = models.IntegerField() # in days
+    # for now only monthly plans are available
+    plan_validity = models.IntegerField(default=30) # in days
 
 
 
@@ -36,6 +38,13 @@ class EssentialFeatures(BaseModel):
     main features:
         satellite_data, satellite_images, vegitation idex, vegitation
     """
+    PERIODIC_CHOICES = {
+        "DAILY": "DAILY",
+        "MONTHLY":"MONTHLY",
+        "YEARLY":"YEARLY",
+    }
+    # for now only monthly plans are avalable
+    periodicity = models.CharField(max_length=10, choices=PERIODIC_CHOICES, default="MONTHLY", null=True, blank=True)
     feature = models.CharField(max_length=100)
     remark = models.TextField()
     feature_price = models.FloatField() # per day
@@ -60,9 +69,18 @@ class AccountSubscription(BaseModel):
     )
     valied_till = models.DateField()
 
+    @property
+    def is_expired(self):
+        # return bool of expired status
+        return self.valied_till < datetime.now().date()
 
 
-# through table for plan features m2m connection to plan peature tabele
+    class meta:
+        ordering = ["-created_at"]
+
+
+
+# through table for plan lass method, but afeatures m2m connection to plan peature tabele
 # through table contain the feature is the part of base plan of addon
 class PlanFeaturesThrough(BaseModel):
 
